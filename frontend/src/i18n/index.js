@@ -8,6 +8,7 @@ export const translations = { en, es };
 export const IMAGES = {
   hero: "/images/hero.jpg",
   about: "/images/about.jpg",
+  laNota: "/images/la-nota-logo.png",
 };
 
 // Redes sociales del pie de página.

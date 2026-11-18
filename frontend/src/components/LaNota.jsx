@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { IMAGES } from "../i18n";
 import { Reveal } from "./Reveal";
 import { SectionHead } from "./SectionHead";
 
@@ -15,6 +16,7 @@ export const LaNota = () => {
         <SectionHead eyebrow={n.eyebrow} title={n.title} />
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <Reveal className="lg:col-span-6 lg:col-start-4">
+            <img src={IMAGES.laNota} alt="La Nota NY" className="w-28 h-28 sm:w-32 sm:h-32 rounded-full mb-10" />
             <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">{n.text}</p>
             <a href={n.href} target="_blank" rel="noopener noreferrer" className="btn-dark mt-10">
               {n.button} <ArrowUpRight size={18} strokeWidth={1.5} />
