@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============ Estilos globales y componentes reutilizables ============ */
+
+:root {
+  --ink: #0b0b0b;
+  --paper: #f5f3ef;
+  --gold: #a8834f;
+  --gold-soft: #c5a880;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: #fdfdfc;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--gold-soft); color: var(--ink); }
+
+/* Contenedor centrado con márgenes que crecen según la pantalla */
+.container-x { max-width: 1440px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+@media (min-width: 640px)  { .container-x { padding-left: 3rem; padding-right: 3rem; } }
+@media (min-width: 1024px) { .container-x { padding-left: 5rem; padding-right: 5rem; } }
+
+/* Etiqueta pequeña en mayúsculas que va encima de los títulos */
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #8a8a8a;
+}
+
+/* ----- Header ----- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.is-scrolled {
+  background: rgba(253, 253, 252, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+.mobile-menu { background: #fdfdfc; border-top: 1px solid rgba(0,0,0,0.08); min-height: calc(100vh - 5rem); animation: fadeIn 0.25s ease; }
+
+.nav-link { position: relative; font-size: 0.875rem; color: #3a3a3a; transition: color 0.2s ease; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; bottom: -6px; height: 1px; width: 100%;
+  background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ----- Selector de idioma EN | ES ----- */
+.lang-toggle { display: flex; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; }
+.lang-sep { color: #c4c4c4; margin: 0 0.6rem; }
+.lang-btn { padding: 2px 0; color: #9a9a9a; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; }
+.lang-btn:hover { color: var(--ink); }
+.lang-btn.is-active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ----- Botones ----- */
+.btn-dark, .btn-outline, .btn-gold {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1rem 1.9rem; font-size: 0.875rem; letter-spacing: 0.02em; border-radius: 999px;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+.btn-sm { padding: 0.65rem 1.3rem; font-size: 0.8rem; }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: var(--gold); transform: translateY(-2px); }
+.btn-dark:disabled { opacity: 0.6; transform: none; }
+.btn-outline { border: 1px solid rgba(0,0,0,0.2); color: var(--ink); }
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+.btn-gold { background: var(--gold-soft); color: var(--ink); padding: 1.15rem 2.2rem; }
+.btn-gold:hover { background: #fff; transform: translateY(-2px); }
+
+/* ----- Secciones ----- */
+.service-row {
+  display: grid; grid-template-columns: 3rem 1fr; gap: 1rem;
+  padding: 2.25rem 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: padding-left 0.35s ease, background-color 0.35s ease;
+}
+.service-row:hover { padding-left: 1rem; }
+
+.case-img img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.case-img:hover img { transform: scale(1.04); }
+
+.testimonial { background: #fdfdfc; padding: 2.5rem; display: flex; flex-direction: column; transition: background-color 0.3s ease; }
+.testimonial:hover { background: var(--paper); }
+
+/* ----- Formulario (inputs con solo línea inferior) ----- */
+.field { display: flex; flex-direction: column; gap: 0.75rem; }
+.input-line {
+  width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 0.6rem 0; font-size: 1.05rem; outline: none; border-radius: 0;
+  transition: border-color 0.25s ease;
+}
+.input-line::placeholder { color: #b5b5b5; }
+.input-line:focus { border-bottom-color: var(--gold); }
+select.input-line { appearance: none; cursor: pointer; }
+
+.footer-link { color: rgba(255,255,255,0.7); transition: color 0.2s ease; }
+.footer-link:hover { color: var(--gold-soft); }
+
+/* ----- Animaciones ----- */
+/* .reveal empieza invisible; el componente Reveal le pone .is-shown al entrar en pantalla */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-shown { opacity: 1; transform: none; }
+.fade-up { animation: fadeUp 1s cubic-bezier(.2,.7,.2,1) both; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Respeta a quien tiene desactivadas las animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .fade-up { animation: none; }
+  html { scroll-behavior: auto; }
+}
