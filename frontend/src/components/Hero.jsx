@@ -1,11 +1,9 @@
-import { ArrowDownRight, Download } from "lucide-react";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { IMAGES } from "../i18n";
-import { useMediaKit } from "./useMediaKit";
 
 export const Hero = () => {
   const { t } = useLanguage();
-  const downloadMediaKit = useMediaKit();
 
   return (
     <section id="top" className="container-x pt-32 lg:pt-40 pb-20">
@@ -23,9 +21,9 @@ export const Hero = () => {
             <a href="#contact" className="btn-dark">
               {t.hero.primaryCta} <ArrowDownRight size={18} strokeWidth={1.5} />
             </a>
-            <button type="button" onClick={downloadMediaKit} className="btn-outline">
-              <Download size={16} strokeWidth={1.5} /> {t.hero.secondaryCta}
-            </button>
+            <a href="#la-nota" className="btn-outline">
+              {t.hero.secondaryCta} <ArrowRight size={16} strokeWidth={1.5} />
+            </a>
           </div>
           <p className="mt-10 text-xs font-mono uppercase tracking-[0.2em] text-neutral-400">{t.hero.location}</p>
         </div>
@@ -36,7 +34,7 @@ export const Hero = () => {
             <img src={IMAGES.hero} alt="Andrea Briones" className="w-full h-full object-cover object-top" />
           </div>
           <div className="absolute -left-6 bottom-10 bg-white px-6 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)]">
-            <p className="font-serif text-4xl">6.2%</p>
+            <p className="font-serif text-4xl">{t.hero.badgeValue}</p>
             <p className="eyebrow mt-1">{t.hero.badge}</p>
           </div>
         </div>

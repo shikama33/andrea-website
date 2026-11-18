@@ -1,10 +1,10 @@
-import { ArrowUp, Instagram, Music2, Youtube } from "lucide-react";
+import { ArrowUp, Instagram, Newspaper } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { SOCIALS } from "../i18n";
 import { NAV_ITEMS } from "./nav";
 
 // Icono de cada red (por nombre, para que SOCIALS en i18n/index.js sea solo datos)
-const ICONS = { Instagram, TikTok: Music2, YouTube: Youtube };
+const ICONS = { Instagram, "La Nota NY": Newspaper };
 
 export const Footer = () => {
   const { t } = useLanguage();

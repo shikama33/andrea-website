@@ -4,9 +4,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Stats } from "./components/Stats";
 import { Services } from "./components/Services";
-import { CaseStudies } from "./components/CaseStudies";
-import { Testimonials } from "./components/Testimonials";
-import { MediaKit } from "./components/MediaKit";
+import { LaNota } from "./components/LaNota";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 
@@ -20,9 +18,7 @@ export default function App() {
         <Hero />
         <Stats />
         <Services />
-        <CaseStudies />
-        <Testimonials />
-        <MediaKit />
+        <LaNota />
         <ContactForm />
       </main>
       <Footer />

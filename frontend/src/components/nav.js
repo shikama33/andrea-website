@@ -2,8 +2,6 @@
 // Lo usan el Header y el Footer para no repetir la lista.
 export const NAV_ITEMS = [
   ["services", "services"],
-  ["cases", "case-studies"],
-  ["testimonials", "testimonials"],
-  ["mediaKit", "media-kit"],
+  ["laNota", "la-nota"],
   ["contact", "contact"],
 ];

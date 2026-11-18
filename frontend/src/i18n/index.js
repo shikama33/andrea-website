@@ -8,20 +8,10 @@ export const translations = { en, es };
 export const IMAGES = {
   hero: "/images/hero.jpg",
   about: "/images/about.jpg",
-  beauty: "/images/beauty.jpg",
-  travel: "/images/travel.jpg",
-  fashion: "/images/fashion.jpg",
 };
 
-// PDFs del media kit, uno por idioma (en frontend/public/)
-export const MEDIA_KITS = {
-  en: "/media-kit-andrea-briones-en.pdf",
-  es: "/media-kit-andrea-briones-es.pdf",
-};
-
-// Redes sociales del pie de página. TODO: poner los enlaces reales de Andrea.
+// Redes sociales del pie de página.
 export const SOCIALS = [
-  { name: "Instagram", href: "https://instagram.com" },
-  { name: "TikTok", href: "https://tiktok.com" },
-  { name: "YouTube", href: "https://youtube.com" },
+  { name: "Instagram", href: "https://instagram.com/andreabriones7" },
+  { name: "La Nota NY", href: "https://instagram.com/lanotanewyork" },
 ];
